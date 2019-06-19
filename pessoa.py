@@ -1,6 +1,6 @@
 import simpy
 
-def Pessoa():
+def Pessoa(env):
     def __init__(self,env):
         self.env = env
         self.env.process(self.run())

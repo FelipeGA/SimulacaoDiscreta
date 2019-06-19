@@ -1,5 +1,3 @@
-import simpy
-
 def Pessoa(env):
     def __init__(self,env):
         self.env = env

@@ -8,10 +8,7 @@ class Carro(object):
     def run(self):
         print('Começa a estacionar e a carregar em ',self.env.now)
         duracao_recarga = 5
-        try:
-           yield self.env.process(self.carga(duracao_recarga))
-        except simpy.Interrupt:
-            print('Carga interrompida!')
+        yield self.env.process(self.carga(duracao_recarga))
 
         print('Começa a dirigir em ',self.env.now)
         duracao_viagem = 2
@@ -20,12 +17,9 @@ class Carro(object):
     def carga(self,duracao):
         yield self.env.timeout(duracao)
 
-def motorista(env,carro):
-    yield env.timeout(3)
-    carro.action.interrupt()
-
 env = simpy.Environment()
 carro1 = Carro(env)
-env.process(motorista(env,carro1))
+carro2 = Carro(env)
+carro3 = Carro(env)
 
 env.run(until=140)

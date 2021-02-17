@@ -1,2 +1,2 @@
 # SimulacaoDiscreta
-Trabalho final da disciplina Simulação Discreta
+Projeto final da disciplina Simulação Discreta.
